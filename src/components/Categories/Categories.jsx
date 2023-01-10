@@ -1,8 +1,8 @@
 export function Categories() {
     return (
-        <div class="categories">
+        <div className="categories">
             <ul>
-                <li class="active">Всі</li>
+                <li className="active">Всі</li>
                 <li>Мясні</li>
                 <li>Вегетаріанські</li>
                 <li>Гриль</li>
