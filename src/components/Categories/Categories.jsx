@@ -2,12 +2,12 @@ export function Categories() {
     return (
         <div class="categories">
             <ul>
-                <li class="active">Все</li>
-                <li>Мясные</li>
-                <li>Вегетарианская</li>
+                <li class="active">Всі</li>
+                <li>Мясні</li>
+                <li>Вегетаріанські</li>
                 <li>Гриль</li>
-                <li>Острые</li>
-                <li>Закрытые</li>
+                <li>Гострі</li>
+                <li>Закриті</li>
             </ul>
         </div>
     )
