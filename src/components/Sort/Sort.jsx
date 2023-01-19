@@ -4,6 +4,7 @@ export function Sort() {
   const filters = ["популярності", "ціні", "алфавіту"];
   const [activeFilter, setActiveFilter] = useState(false);
   const [selected, setSelected] = useState(filters[0]);
+  const sortName = filters[selected === filters[0] ? 0 : selected === filters[1] ? 1 : 2];
 
   const onClickListItem = (index) => {
     setSelected(index);
@@ -26,7 +27,7 @@ export function Sort() {
           />
         </svg>
         <b>Сортування по:</b>
-        <span onClick={() => setActiveFilter(!activeFilter)}>{filters[selected[0]]}</span>
+        <span onClick={() => setActiveFilter(!activeFilter)}>{sortName}</span>
       </div>
       {activeFilter && (
         <div className="sort__popup">
