@@ -1,0 +1,15 @@
+.notFoundBlockTitle {
+    padding: 100px;
+    max-width: 750px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.notFoundBlockEmoji {
+    font-size: 84px;
+}
+
+.notFoundBlockDescr {
+    font-size: 24px;
+    text-align: center;
+}
