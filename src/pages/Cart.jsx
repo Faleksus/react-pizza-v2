@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const Cart = () => {
-  return (
-    <div>Кошик</div>
-  )
-}
+  return <div className="container container--cart">Кошик</div>;
+};
