@@ -1,0 +1,57 @@
+.searchContainer {
+  position: relative;
+}
+
+.input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 12px 20px;
+  width: 300px;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+}
+
+.input:focus,
+.input:active,
+.input:hover {
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.iconSearch {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  fill: rgba(0, 0, 0, 0.3);
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  cursor: pointer;
+  pointer-events: all;
+  z-index: 1;
+}
+
+.iconSearch:hover,
+.iconSearch:focus,
+.iconSearch:active {
+  fill: rgba(0, 0, 0, 0.5);
+}
+
+.iconSearchClear {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  fill: rgba(0, 0, 0, 0.3);
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  cursor: pointer;
+  pointer-events: all;
+  z-index: 1;
+}
+
+.iconSearchClear:hover,
+.iconSearchClear:focus,
+.iconSearchClear:active {
+  fill: rgba(0, 0, 0, 0.5);
+}

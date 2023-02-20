@@ -1,0 +1,57 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 20px;
+  cursor: pointer;
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(249, 91, 28, 0.7);
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+  }
+
+  li:last-child,
+  li:first-child {
+    border: none;
+    font-size: 30px;
+  }
+
+  a {
+    color: #fe5f1e;
+    list-style: none;
+    font-size: 24px;
+  }
+
+  li:hover,
+  li:focus {
+    border: 1px solid rgba(250, 250, 250, 0.7);
+    background-color: #fe5f1e;
+
+    a {
+      color: rgba(250, 250, 250, 0.7);
+    }
+  }
+
+  li:hover:last-child,
+  li:first-child:focus {
+    // border: 1px solid rgba(250, 250, 250, 0.7);
+    background-color: gba(250, 250, 250, 0.7);
+  }
+
+  :global {
+    .selected {
+      background-color: #fe5f1e;
+
+      a {
+        color: rgba(250, 250, 250, 0.7);
+      }
+    }
+  }
+}
