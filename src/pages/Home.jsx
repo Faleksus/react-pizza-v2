@@ -7,23 +7,28 @@ import { useState } from "react";
 import { Categories } from "components/Categories/Categories";
 import Pagination from "components/Pagination/Pagination";
 import { SearchContext } from "App";
+import { useDispatch, useSelector } from "react-redux";
+import { setCategoryId } from "redux/slices/filterSlice";
 
 export const Home = () => {
+  const dispatch = useDispatch();
+  const { categoryId, sort } = useSelector((state) => state.filter);
+
   const { searchValue } = useContext(SearchContext);
   const [pizzas, setPizzas] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [categoryId, setCategoryId] = useState(0);
-  const [sortType, setSortType] = useState({
-    name: "популярності",
-    sortProperty: "rating",
-  });
+
   const [currentPage, setCurrentPage] = useState(1);
+
+  const onChangeCategory = (id) => {
+    dispatch(setCategoryId(id));
+  };
 
   useEffect(() => {
     setIsLoading(true);
 
-    const order = sortType.sortProperty.includes("-") ? "desc" : "asc";
-    const sortBy = sortType.sortProperty.replace("-", "");
+    const order = sort.sortProperty.includes("-") ? "desc" : "asc";
+    const sortBy = sort.sortProperty.replace("-", "");
     const category = categoryId === 0 ? "" : `category=${categoryId}`;
     const search = searchValue ? `&search=${searchValue}` : "";
 
@@ -40,7 +45,7 @@ export const Home = () => {
         setIsLoading(false);
       });
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, searchValue, currentPage]);
+  }, [categoryId, sort, searchValue, currentPage]);
 
   const itemsPizza = pizzas.map((pizza) => (
     <PizzaBlock
@@ -76,11 +81,8 @@ export const Home = () => {
   return (
     <div className="container">
       <div className="content__top">
-        <Categories
-          value={categoryId}
-          onChangeCategory={(id) => setCategoryId(id)}
-        />
-        <Sort value={sortType} onChangeSort={(id) => setSortType(id)} />
+        <Categories value={categoryId} onChangeCategory={onChangeCategory} />
+        <Sort />
       </div>
       <h2 className="content__title">Всі піцци</h2>
       <div className="content__items">{isLoading ? skeleton : itemsPizza}</div>
