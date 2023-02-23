@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { SearchContext } from "App";
 import { useCallback, useContext, useRef, useState } from "react";
 import debounce from "lodash.debounce";
