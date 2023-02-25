@@ -3,7 +3,7 @@ import React, { useContext, useRef } from "react";
 import axios from "axios";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import qs from "qs";
-import { PizzaBlock } from "components/PizzaBlock/PizzaBlock";
+import PizzaBlock from "components/PizzaBlock/PizzaBlock";
 import { filters, Sort } from "components/Sort/Sort";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -18,7 +18,7 @@ import {
 } from "redux/slices/filterSlice";
 import { useNavigate } from "react-router-dom";
 
-export const Home = () => {
+const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSearch = useRef(false);
@@ -112,6 +112,7 @@ export const Home = () => {
   const itemsPizza = pizzas.map((pizza) => (
     <PizzaBlock
       key={pizza.id}
+      id={pizza.id}
       title={pizza.title}
       price={pizza.price}
       image={pizza.imageUrl}
@@ -136,7 +137,7 @@ export const Home = () => {
   //   />
   // ));
 
-  const skeleton = [...new Array(12)].map((_, index) => (
+  const skeleton = [...new Array(6)].map((_, index) => (
     <Skeleton key={index} />
   ));
 
@@ -146,9 +147,12 @@ export const Home = () => {
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <Sort />
       </div>
-      <h2 className="content__title">Всі піцци</h2>
+      <h2 className="content__title">Всі піци</h2>
       <div className="content__items">{isLoading ? skeleton : itemsPizza}</div>
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
 };
+
+
+export default Home;
