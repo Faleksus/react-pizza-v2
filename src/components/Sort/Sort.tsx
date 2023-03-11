@@ -7,6 +7,11 @@ type SortType = {
   sortProperty: string;
 };
 
+type PopupClick = MouseEvent & {
+  path: EventTarget[];
+};
+
+
 export const filters: SortType[] = [
   { name: "популярності (DESC)", sortProperty: "rating" },
   { name: "популярності (ASC)", sortProperty: "-rating" },
@@ -29,14 +34,14 @@ export const Sort = () => {
   };
 
   useEffect(() => {
-    const handleClickOutside = (e: any) => {
-      if (!e.path.includes(sortRef.current)) {
+    const handleClickOutside = (e: PopupClick) => {
+      if (sortRef.current && !e.path.includes(sortRef.current)) {
         setActiveFilter(false);
       }
     };
-    document.body.addEventListener("click", handleClickOutside);
+    document.body.addEventListener("click", handleClickOutside as EventListener);
 
-    return () => document.body.removeEventListener("click", handleClickOutside);
+    return () => document.body.removeEventListener("click", handleClickOutside as EventListener);
   }, []);
 
   return (
