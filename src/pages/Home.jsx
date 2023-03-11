@@ -6,17 +6,17 @@ import { useDispatch, useSelector } from "react-redux";
 import qs from "qs";
 
 import Skeleton from "../components/PizzaBlock/Skeleton";
-import PizzaBlock from "components/PizzaBlock/PizzaBlock";
-import { filters, Sort } from "components/Sort/Sort";
-import { Categories } from "components/Categories/Categories";
-import Pagination from "components/Pagination/Pagination";
+import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
+import { filters, Sort } from "../components/Sort/Sort";
+import { Categories } from "../components/Categories/Categories";
+import Pagination from "../components/Pagination/Pagination";
 import {
   selectFilter,
   setCategoryId,
   setCurrentPage,
   setFilters,
-} from "redux/slices/filterSlice";
-import { fetchPizzas, selectPizzaData } from "redux/slices/pizzasSlice";
+} from "../redux/slices/filterSlice";
+import { fetchPizzas, selectPizzaData } from "../redux/slices/pizzasSlice";
 
 const Home = () => {
   const navigate = useNavigate();

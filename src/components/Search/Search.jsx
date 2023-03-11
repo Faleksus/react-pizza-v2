@@ -3,7 +3,7 @@ import { useCallback, useRef, useState } from "react";
 import debounce from "lodash.debounce";
 import css from "./Search.module.css";
 import { useDispatch } from "react-redux";
-import { setSearchValue } from "redux/slices/filterSlice";
+import { setSearchValue } from "../../redux/slices/filterSlice";
 
 const Search = () => {
   const dispatch = useDispatch();

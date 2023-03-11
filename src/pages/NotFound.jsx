@@ -1,4 +1,4 @@
-import { NotFoundBlock } from 'components/NotFoundBlock/NotFoundBlock'
+import { NotFoundBlock } from "../components/NotFoundBlock/NotFoundBlock";
 import React from 'react'
 
 export const NotFound = () => {

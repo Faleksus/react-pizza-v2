@@ -1,7 +1,7 @@
-import Search from "components/Search/Search";
+import Search from "../../components/Search/Search";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import { selectCart } from "redux/slices/cartSlice";
+import { selectCart } from "../../redux/slices/cartSlice";
 import logo from "../../img/pizza-logo.svg";
 
 const Header = () => {

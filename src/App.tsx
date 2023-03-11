@@ -1,11 +1,13 @@
-import Home from "pages/Home";
-import Cart from "pages/Cart";
-import { NotFound } from "pages/NotFound";
+
+import Cart from "./pages/Cart";
+import { NotFound } from "./pages/NotFound";
 import { Route, Routes } from "react-router";
 
 import "./scss/app.scss";
-import FullPizza from "pages/FullPizza";
-import MainLayout from "components/Layouts/MainLayout";
+import FullPizza from "./pages/FullPizza";
+import MainLayout from "./components/Layouts/MainLayout";
+import React from "react";
+import Home from "./pages/Home";
 
 export const App = () => {
   return (
