@@ -1,7 +1,7 @@
 import React from 'react'
 import css from './NotFoundBlock.module.css';
 
-export const NotFoundBlock = () => {
+export const NotFoundBlock: React.FC = () => {
   return (
 
         <h1 className={css.notFoundBlockTitle}>

@@ -2,7 +2,7 @@ import Header from "../Header/Header";
 import React from "react";
 import { Outlet } from "react-router";
 
-const MainLayout = () => {
+const MainLayout: React.FC = () => {
   return (
     <div className="wrapper">
       <Header />

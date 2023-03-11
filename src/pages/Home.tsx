@@ -18,7 +18,7 @@ import {
 } from "../redux/slices/filterSlice";
 import { fetchPizzas, selectPizzaData } from "../redux/slices/pizzasSlice";
 
-const Home = () => {
+const Home: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSearch = useRef(false);
@@ -27,11 +27,11 @@ const Home = () => {
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectFilter);
 
-  const onChangeCategory = (id) => {
+  const onChangeCategory = (id: number) => {
     dispatch(setCategoryId(id));
   };
 
-  const onChangePage = (page) => {
+  const onChangePage = (page: number) => {
     dispatch(setCurrentPage(page));
   };
 
@@ -41,7 +41,10 @@ const Home = () => {
     const category = categoryId === 0 ? "" : `category=${categoryId}`;
     const search = searchValue ? `&search=${searchValue}` : "";
 
-    dispatch(fetchPizzas({ category, sortBy, order, search, currentPage }));
+    dispatch(
+      //@ts-ignore
+      fetchPizzas({ category, sortBy, order, search, currentPage })
+    );
   };
 
   useEffect(() => {
@@ -83,7 +86,7 @@ const Home = () => {
     isSearch.current = false;
   }, [categoryId, sort, searchValue, currentPage]);
 
-  const itemsPizza = items.map((pizza) => (
+  const itemsPizza = items.map((pizza: any) => (
     <Link key={pizza.id} to={`/pizza/${pizza.id}`}>
       <PizzaBlock
         id={pizza.id}
@@ -92,6 +95,7 @@ const Home = () => {
         image={pizza.imageUrl}
         sizes={pizza.sizes}
         types={pizza.types}
+        rating={0}
       />
     </Link>
   ));
